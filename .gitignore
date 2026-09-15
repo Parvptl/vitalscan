@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Environment - never commit real values
+.env
+.env.*
+!.env.example
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Runtime artefacts
+.backend.log
+.frontend.log
+*.log
+
+# Measurement media must never be committed
+*.mp4
+*.mov
+*.avi
+*.mkv

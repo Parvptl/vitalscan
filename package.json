@@ -1,0 +1,19 @@
+{
+  "name": "vitalscan",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Camera-based rPPG vital-signal prototype built on the reference finger-video notebook.",
+  "scripts": {
+    "dev:all": "concurrently -n api,web -c cyan,magenta \"npm:dev:backend\" \"npm:dev:frontend\"",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "cd backend && python -m uvicorn app.main:app --reload --port 8000",
+    "install:all": "npm --prefix frontend install && python -m pip install -r backend/requirements.txt",
+    "build": "npm --prefix frontend run build",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:frontend": "npm --prefix frontend run test",
+    "test:backend": "cd backend && python -m pytest"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

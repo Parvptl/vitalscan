@@ -1,0 +1,113 @@
+/* VitalScan design tokens.
+   A light, calm, clinical-adjacent identity: warm off-white surfaces, deep
+   slate ink, and a single teal accent used sparingly for state and emphasis. */
+
+:root {
+  /* Surfaces */
+  --vs-bg: #f6f7f6;
+  --vs-bg-tint: #eef2f1;
+  --vs-surface: #ffffff;
+  --vs-surface-sunken: #f1f3f2;
+  --vs-border: #e2e6e5;
+  --vs-border-strong: #cdd4d2;
+
+  /* Ink */
+  --vs-ink: #14201d;
+  --vs-ink-muted: #5c6b67;
+  --vs-ink-faint: #8a9793;
+  --vs-ink-inverse: #ffffff;
+
+  /* Accent */
+  --vs-accent: #0f7a6b;
+  --vs-accent-strong: #0a5d51;
+  --vs-accent-soft: #e2f1ee;
+  --vs-accent-ring: rgba(15, 122, 107, 0.28);
+
+  /* Status */
+  --vs-good: #1c7a52;
+  --vs-good-soft: #e3f3eb;
+  --vs-warn: #9a6512;
+  --vs-warn-soft: #fbf0dd;
+  --vs-bad: #a32f30;
+  --vs-bad-soft: #fbe9e9;
+
+  /* Measurement accent (the heart-rate hero) */
+  --vs-pulse: #c0392b;
+
+  /* Elevation */
+  --vs-shadow-sm: 0 1px 2px rgba(20, 32, 29, 0.05);
+  --vs-shadow: 0 2px 8px rgba(20, 32, 29, 0.06), 0 1px 2px rgba(20, 32, 29, 0.04);
+  --vs-shadow-lg: 0 12px 32px rgba(20, 32, 29, 0.1);
+
+  /* Shape */
+  --vs-radius-sm: 10px;
+  --vs-radius: 16px;
+  --vs-radius-lg: 24px;
+  --vs-radius-pill: 999px;
+
+  /* Spacing scale */
+  --vs-space-1: 4px;
+  --vs-space-2: 8px;
+  --vs-space-3: 12px;
+  --vs-space-4: 16px;
+  --vs-space-5: 24px;
+  --vs-space-6: 32px;
+  --vs-space-7: 48px;
+  --vs-space-8: 64px;
+
+  /* Type */
+  --vs-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
+  --vs-font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  --vs-text-xs: 0.75rem;
+  --vs-text-sm: 0.875rem;
+  --vs-text-base: 1rem;
+  --vs-text-lg: 1.125rem;
+  --vs-text-xl: 1.375rem;
+  --vs-text-2xl: 1.75rem;
+  --vs-text-3xl: 2.25rem;
+  --vs-display: clamp(3.25rem, 18vw, 4.75rem);
+
+  /* Motion */
+  --vs-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --vs-duration: 240ms;
+
+  /* Layout */
+  --vs-page-max: 560px;
+  --vs-page-max-wide: 960px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --vs-bg: #0e1513;
+    --vs-bg-tint: #131c1a;
+    --vs-surface: #16211e;
+    --vs-surface-sunken: #111a18;
+    --vs-border: #243330;
+    --vs-border-strong: #33463f;
+
+    --vs-ink: #edf3f1;
+    --vs-ink-muted: #a4b3ae;
+    --vs-ink-faint: #7b8a85;
+    --vs-ink-inverse: #0e1513;
+
+    --vs-accent: #3fbfa8;
+    --vs-accent-strong: #63d3bd;
+    --vs-accent-soft: #14332e;
+    --vs-accent-ring: rgba(63, 191, 168, 0.32);
+
+    --vs-good: #56c68f;
+    --vs-good-soft: #123024;
+    --vs-warn: #d7a44c;
+    --vs-warn-soft: #33270f;
+    --vs-bad: #e0716f;
+    --vs-bad-soft: #341b1b;
+
+    --vs-pulse: #e8705f;
+
+    --vs-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --vs-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+    --vs-shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+  }
+}
