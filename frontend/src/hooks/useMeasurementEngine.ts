@@ -124,7 +124,7 @@ export function useMeasurementEngine({ durationS, onComplete }: MeasurementEngin
   // Destructured so the callbacks keep a stable identity across renders: the
   // camera must not be torn down and rebuilt every time the UI heartbeat
   // publishes a new snapshot.
-  const { state: cameraState, start, stop, setTorch, getStream } = useCamera();
+  const { state: cameraState, start, stop, setTorch, enableTorch, getStream } = useCamera();
   const cameraStateRef = useRef(cameraState);
   cameraStateRef.current = cameraState;
 
@@ -275,6 +275,11 @@ export function useMeasurementEngine({ durationS, onComplete }: MeasurementEngin
         video.setAttribute('playsinline', 'true');
         video.muted = true;
         await video.play().catch(() => undefined);
+        // Second attempt at the torch. Android Chrome frequently only exposes
+        // `torch` in the track capabilities once the preview is actually
+        // rendering, so the attempt made at permission time can come too early.
+        // No-ops if the torch is already lit.
+        void enableTorch();
       }
 
       const width = video.videoWidth || 640;
@@ -306,7 +311,7 @@ export function useMeasurementEngine({ durationS, onComplete }: MeasurementEngin
       if (phaseRef.current === 'CAMERA_READY') setPhase('FINGER_PLACEMENT');
       startFrameLoop(video);
     },
-    [getStream, fail, setPhase, startFrameLoop, stopFrameLoop],
+    [getStream, enableTorch, fail, setPhase, startFrameLoop, stopFrameLoop],
   );
 
   /**
