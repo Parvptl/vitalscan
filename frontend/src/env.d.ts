@@ -4,6 +4,8 @@ interface ImportMetaEnv {
   readonly VITE_API_BASE_URL?: string;
   readonly VITE_API_TIMEOUT_MS?: string;
   readonly VITE_MEASUREMENT_SECONDS?: string;
+  /** 'local' runs the pipeline on-device (Android build); 'remote' calls the API. */
+  readonly VITE_PROCESSING_MODE?: 'local' | 'remote';
 }
 
 interface ImportMeta {

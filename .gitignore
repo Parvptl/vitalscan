@@ -33,3 +33,12 @@ Thumbs.db
 *.mov
 *.avi
 *.mkv
+
+# Android build artefacts (the APK is a build output, not source)
+*.apk
+*.aab
+frontend/android/local.properties
+frontend/android/.gradle/
+frontend/android/build/
+frontend/android/app/build/
+frontend/android/capacitor-cordova-android-plugins/

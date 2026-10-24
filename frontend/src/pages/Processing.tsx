@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Disclaimer } from '../components/Disclaimer';
 import { ErrorPanel } from '../components/ErrorPanel';
 import { CheckIcon } from '../components/Icons';
-import { ApiError, processMeasurement } from '../services/api';
+import { ApiError } from '../services/api';
+import { analyseMeasurement } from '../services/processor';
 import { useMeasurementStore } from '../state/MeasurementContext';
 import type { AppError, Measurement } from '../types/measurement';
 
@@ -60,7 +61,7 @@ export function Processing() {
     let cancelled = false;
     setUploaded(true);
 
-    processMeasurement(capture.signals, capture.meta)
+    analyseMeasurement(capture.signals, capture.meta)
       .then((result) => {
         if (cancelled) return;
         const flags: Record<string, boolean> = {};

@@ -44,6 +44,10 @@ export default defineConfig({
     host: true,
   },
   test: {
+    // The algorithm parity fixtures are large; the default `forks` pool times
+    // out transferring them to the worker on Windows. Threads are stable here
+    // and measurably faster.
+    pool: 'threads',
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./src/test/setup.ts'],

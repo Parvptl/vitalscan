@@ -20,7 +20,11 @@ createRoot(document.getElementById('root')!).render(
  *
  * Only the app shell is precached - measurement data is never cached.
  */
-if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+const inNativeShell =
+  typeof window !== 'undefined' &&
+  (window as unknown as { Capacitor?: unknown }).Capacitor !== undefined;
+
+if (import.meta.env.PROD && !inNativeShell && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').catch(() => undefined);
   });
